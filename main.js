@@ -13,3 +13,15 @@ function computerChoice(){
 }
 computerChoice();
 
+function userChoice(){
+	let choice = prompt("Enter an option", "");
+	let result = choice.toLowerCase();
+	if (result === "rock" || result === "paper" || result === "scissors"){
+		return result;
+	}
+	else{
+		alert("you entered a wrong option!, restart game to try again");
+	}
+	
+}
+
