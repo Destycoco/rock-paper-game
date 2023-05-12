@@ -25,3 +25,8 @@ function userChoice(){
 	
 }
 
+const userSelection = userChoice();
+const computerSelection = computerChoice();
+console.log(`Computer: ${computerSelection}`);
+console.log(`You: ${userSelection}`);
+
