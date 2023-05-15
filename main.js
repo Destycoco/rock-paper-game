@@ -1,4 +1,4 @@
-
+//create a function to request input from the user
 function computerChoice(){
 	let randomNumber = Math.ceil(Math.random() * 3);
 	if (randomNumber === 1){
@@ -11,7 +11,7 @@ function computerChoice(){
 		return "scissors";
 	}
 }
-
+//create a function to generate an option from the computer 
 function userChoice(){
 	let choice = prompt("Enter an option (rock, paper or scissors)", "");
 	let result = choice.toLowerCase();
@@ -24,6 +24,8 @@ function userChoice(){
 	
 }
 
+//create a constructor function to check and match the computer's choice with 
+//the user's choice on only one round
 function playRound(userSelection, computerSelection){
 	if (userSelection === computerSelection){
 		return "The game is a tie";
@@ -52,14 +54,17 @@ function playRound(userSelection, computerSelection){
 	}
 
 }
+//create a function to loop the playround function 5 times and also create a 
+//variable to store the user and computer scores respectively and also device a logic
+// to increment the scores after each round.
 function showRound(){
 	let computerScore = 0;
 	let userScore = 0;	
 	for (let count = 0; count < 5; count++){
-		
 		let userSelection = userChoice();
 	    let computerSelection = computerChoice();
-	
+		
+	//create a variable to store the results of the playRound function for each round. 
 		let resultGame = playRound(userSelection, computerSelection);
 			console.log(`You: ${userSelection}`);
 			console.log(`Computer: ${computerSelection}`); 
@@ -72,6 +77,7 @@ function showRound(){
 		}
 		
 	}
+	//display final scores to the console
 		console.log (`Your score: ${userScore}`)
 		console.log (`Computer score: ${computerScore}`)
 	if(computerScore > userScore){
@@ -83,6 +89,6 @@ function showRound(){
 	}
 	
 }
-
+//call the showround function which is the final function
 showRound();
 
