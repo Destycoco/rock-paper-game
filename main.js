@@ -11,10 +11,9 @@ function computerChoice(){
 		return "scissors";
 	}
 }
-computerChoice();
 
 function userChoice(){
-	let choice = prompt("Enter an option", "");
+	let choice = prompt("Enter an option (rock, paper or scissors)", "");
 	let result = choice.toLowerCase();
 	if (result === "rock" || result === "paper" || result === "scissors"){
 		return result;
@@ -24,8 +23,6 @@ function userChoice(){
 	}
 	
 }
-
-	
 
 function playRound(userSelection, computerSelection){
 	if (userSelection === computerSelection){
