@@ -19,7 +19,7 @@ function userChoice(){
 		return result;
 	}
 	else{
-		alert("you entered a wrong option!, restart game to try again");
+		alert("you entered a wrong option!, press Ok to enter a valid option");
 	}
 	
 }
