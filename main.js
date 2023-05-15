@@ -11,7 +11,7 @@ function computerChoice(){
 		return "scissors";
 	}
 }
-//create a function to request an option from the computer 
+//create a function to request an option from the user 
 function userChoice(){
 	let choice = prompt("Enter an option (rock, paper or scissors)", "");
 	let result = choice.toLowerCase();
