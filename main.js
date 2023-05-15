@@ -1,4 +1,4 @@
-//create a function to request input from the user
+//create a generate option from the computer
 function computerChoice(){
 	let randomNumber = Math.ceil(Math.random() * 3);
 	if (randomNumber === 1){
@@ -11,7 +11,7 @@ function computerChoice(){
 		return "scissors";
 	}
 }
-//create a function to generate an option from the computer 
+//create a function to request an option from the computer 
 function userChoice(){
 	let choice = prompt("Enter an option (rock, paper or scissors)", "");
 	let result = choice.toLowerCase();
