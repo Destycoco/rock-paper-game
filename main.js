@@ -23,16 +23,11 @@ function userChoice(){
 		alert("you entered a wrong option!, restart game to try again");
 	}
 	
-
 }
-const userSelection = userChoice();
-const computerSelection = computerChoice();
-console.log(`Computer: ${computerSelection}`);
-console.log(`You: ${userSelection}`);
 
-
-function checkGame(){
 	
+
+function playRound(userSelection, computerSelection){
 	if (userSelection === computerSelection){
 		return "The game is a tie";
 	}
@@ -58,12 +53,39 @@ function checkGame(){
 	else{
 		return "You entered an invalid option";
 	}
+
+}
+function showRound(){
+	let computerScore = 0;
+	let userScore = 0;	
+	for (let count = 0; count < 5; count++){
+		
+		let userSelection = userChoice();
+	    let computerSelection = computerChoice();
+	
+		let resultGame = playRound(userSelection, computerSelection);
+			console.log(`You: ${userSelection}`);
+			console.log(`Computer: ${computerSelection}`); 
+			console.log(`round ${count + 1}: ${resultGame}`);
+		if (resultGame.includes("won")){
+				userScore++;
+		}
+		else if (resultGame.includes("lost")){
+				computerScore++;
+		}
+		
+	}
+		console.log (`Your score: ${userScore}`)
+		console.log (`Computer score: ${computerScore}`)
+	if(computerScore > userScore){
+		console.log("You lost! please try again")
+	} else if(computerScore < userScore){
+		console.log("You won! you are a legend.")
+	} else {
+		console.log("Oops It's a tie")
+	}
 	
 }
-function fiveTimes(){
-	for(i = 0; i < 5; i++){
-		console.log(checkGame());
-	}
-}
 
-console.log(fiveTimes());
+showRound();
+
