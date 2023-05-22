@@ -37,7 +37,6 @@ body{
 	border: 3px solid red;
 	flex: auto;
 	margin:40px 20px;
-	/* justify-content: center; */
 	align-self: center;
 	overflow: hidden;
 	border-radius: 30px;
@@ -47,11 +46,51 @@ body{
 	width: 100%;
 	height: 100%;
 	border-radius: 30px;
-	transition: transform .5s ease;
+
+	
+	/* transition: transform .5s ease; */
 }
-.games img:hover{
+/* .games img:hover {
 	transform: scale(1.3);
+} */
+
+/********************Layer Section*****************/
+.layer{
+	left: 0;
+	top: 0;
+	background-color: red;
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: transparent;
+	transition: 0.5s;
+	
+	
 }
+.games .layer h2{
+	left: 50%;
+	font-size: 50px;
+	font-weight: 700;
+	color: white;
+	bottom: 0%;
+	position: absolute;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: 0.5s;
+}
+.container .games .layer:hover {
+	background-color: red;
+}
+.container .games .layer:hover h2{
+	bottom: 49%;
+	opacity: 1;
+}
+
+
+/*****************End Of Layer SECTION***************************/
+
 .score-section{
 	color: white;
 	margin-bottom: 100px;
@@ -89,27 +128,3 @@ body{
 .scoreline h2{
 	font-size: 40px;
 }
-.layer{
-	left: 0;
-	top: 0;
-	background-color: red;
-	opacity: 0.5;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	
-	
-}
-.games .layer h2{
-	left: 50%;
-	font-size: 50px;
-	font-weight: 700;
-	color: white;
-	bottom: 49%;
-	position: absolute;
-	transform: translateX(-50%);
-	
-	
-}
-
