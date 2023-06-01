@@ -2,6 +2,9 @@
 const selectionButtons = document.querySelectorAll('[data-selection]');
 const computerScore = document.querySelector('[data-computer-score]');
 const userScore = document.querySelector('[data-your-score]');
+const displayText = document.querySelector(".gameresult")
+
+
 //Next we have to create an array that will hold the posible outcomes for the game when it is played.
 const SELECTION = [{
 	name: "rock",
@@ -37,22 +40,23 @@ function showSelection(selection){
 	//console.log(selection);
 	//console.log(computerSelection);
 	if (userWinner) {
-		incrementScore(computerScore);
-	} else {
-	 incrementScore(userScore);
+		incrementScore(userScore);
+		displayText.innerHTML = `you won ${selection.name} beats ${computerSelection.name}`;
 	}
+    else {
+	 incrementScore(computerScore);
+	 displayText.innerHTML = `you lost ${computerSelection.name} beats ${selection.name}`;
+	  
 }
-//function to display results to the screen
-function displayResult(selection, ){
-    const displayText = document.querySelector("gameResult")
 }
-//function to increment the scores
+
+//function to increment the scores 
 function incrementScore(score){
 	score.innerText = parseInt(score.innerText) + 1;
 }
 //function to get the winner
 function isWinner(selection, opponentSelection){
-	return selection.beats === opponentSelection.beats;
+	return selection.beats === opponentSelection.beats; 
 }
 
 //function to obtain a random number so as to use it to get the computer's selections
