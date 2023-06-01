@@ -7,27 +7,25 @@
 	<title>Rock Paper Scissors Game</title>
 	<link rel="stylesheet" href="./styles.css">
 	<link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-	<script src="main.js"></script>
-	
 </head>
 <body>
 	<h1 class="header-text">ROCK PAPER SCISSORS GAME</h1><br>
 	<h2 class="header-name">BY DESTYCOCO</h2>
 	<div class="container">
-			<div class="games rock" >
-				<img src="./images/Rock.jpg" alt="">
+			<div class="games" data-selection="rock">
+				<img class="img_rock" src="./images/Rock.jpg" alt="rock">
 				<div class="layer">
 					<h2>ROCK</h2>
 				</div>
 			</div>
-			<div class="games paper" >
-				<img src="./images/paper-2.jpg" alt="">
+			<div class="games" data-selection="paper">
+				<img class="img_paper" src="./images/paper-2.jpg" alt="paper">
 				<div class="layer">
 					<h2>PAPER</h2>
 				</div>
 			</div>
-			<div class="games scissors">
-				<img src="./images/scissors.jpg" alt="">
+			<div class="games" data-selection="scissors">
+				<img class="img_scissors" src="./images/scissors.jpg" alt="scissors">
 				<div class="layer">
 					<h2>SCISSORS</h2>
 				</div>
@@ -40,14 +38,18 @@
 		<div class="scoreline">
 			<div>
 				<h2>YOU</h2>
-				<h2>0</h2>
+				<h2 class="user-score" data-your-score>0</h2>
 			</div>
 			<div>
 				<h2>COMPUTER</h2>
-				<h2>0</h2>
+				<h2 class="computer-score" data-computer-score>0</h2>
 			</div>
 	    </div>
-		
+		<p class="gameresult"></p>
 	</div>
+	
 </body>
-</html><h1></h1>
+
+<script src="main.js" ></script>
+
+</html>

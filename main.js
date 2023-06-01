@@ -1,94 +1,65 @@
-//create a generate option from the computer
-function computerChoice(){
-	let randomNumber = Math.ceil(Math.random() * 3);
-	if (randomNumber === 1){
-		return "rock";
-	}
-	else if(randomNumber === 2){
-		return "paper";
-	}
-	else{
-		return "scissors";
-	}
+//get all the selections available i.e rock, paper and scissors
+const selectionButtons = document.querySelectorAll('[data-selection]');
+const computerScore = document.querySelector('[data-computer-score]');
+const userScore = document.querySelector('[data-your-score]');
+//Next we have to create an array that will hold the posible outcomes for the game when it is played.
+const SELECTION = [{
+	name: "rock",
+	beats: "scissors"
+},
+{
+	name: "paper",
+	beats: "rock"
+},
+{
+	name: "scissors",
+	beats: "paper"
 }
-//create a function to request an option from the user 
-function userChoice(){
-	let choice = prompt("Enter an option (rock, paper or scissors)", "");
-	let result = choice.toLowerCase();
-	if (result === "rock" || result === "paper" || result === "scissors"){
-		return result;
-	}
-	else{
-		alert("you entered a wrong option!, press Ok to enter a valid option");
-	}
-	
-}
+]
 
-//create a constructor function to check and match the computer's choice with 
-//the user's choice on only one round
-function playRound(userSelection, computerSelection){
-	if (userSelection === computerSelection){
-		return "The game is a tie";
-	}
-	
-	else if (userSelection === "rock" && computerSelection === "paper"){
-		return "You lost! paper beat rock";
-	}
-	else if (userSelection === "paper" && computerSelection === "scissors"){
-		return "You lost! scissors beat paper";
-	}
-	else if (userSelection === "scissors" && computerSelection === "rock"){
-		return "You lost! rock beat scissors";
-	}
-	else if (userSelection === "paper" && computerSelection === "rock"){
-		return "You won! paper beat rock";
-	}
-	else if (userSelection === "scissors" && computerSelection === "paper"){
-		return "You won! scissors beat paper";
-	}
-	else if (userSelection === "rock" && computerSelection === "scissors"){
-		return "You won! rock beat scissors";
-	}
-	else{
-		return "You entered an invalid option";
-	}
+//Now we have to loop through all the possible selections and add an event listener so 
+//that when a selection is clicked, the selection is displayed to the console.
+selectionButtons.forEach(selectionButton => {
+	selectionButton.addEventListener('click', (e)=> {
+	 const selectionName = selectionButton.dataset.selection;
+	 
+	 const selection = SELECTION.find(selection => selection.name === selectionName);
+	 showSelection(selection);
+	} )
+}) 
 
-}
-//create a function to loop the playround function 5 times and also create a 
-//variable to store the user and computer scores respectively and also device a logic
-// to increment the scores after each round.
-function showRound(){
-	let computerScore = 0;
-	let userScore = 0;	
-	for (let count = 0; count < 5; count++){
-		let userSelection = userChoice();
-	    let computerSelection = computerChoice();
-		
-	//create a variable to store the results of the playRound function for each round. 
-		let resultGame = playRound(userSelection, computerSelection);
-			console.log(`You: ${userSelection}`);
-			console.log(`Computer: ${computerSelection}`); 
-			console.log(`round ${count + 1}: ${resultGame}`);
-		if (resultGame.includes("won")){
-				userScore++;
-		}
-		else if (resultGame.includes("lost")){
-				computerScore++;
-		}
-		
-	}
-	//display final scores to the console
-		console.log (`Your score: ${userScore}`)
-		console.log (`Computer score: ${computerScore}`)
-	if(computerScore > userScore){
-		console.log("You lost! please try again")
-	} else if(computerScore < userScore){
-		console.log("You won! you are a legend.")
+
+// create a function to display selections to the console.
+function showSelection(selection){
+	const computerSelection = randomSelection();
+	const userWinner = isWinner(selection, computerSelection);
+	const computerWinner = isWinner(computerSelection, selection);
+	//console.log(selection);
+	//console.log(computerSelection);
+	if (userWinner) {
+		incrementScore(computerScore);
 	} else {
-		console.log("Oops It's a tie")
+	 incrementScore(userScore);
 	}
+}
+//function to display results to the screen
+function displayResult(selection, ){
+    const displayText = document.querySelector("gameResult")
+}
+//function to increment the scores
+function incrementScore(score){
+	score.innerText = parseInt(score.innerText) + 1;
+}
+//function to get the winner
+function isWinner(selection, opponentSelection){
+	return selection.beats === opponentSelection.beats;
+}
+
+//function to obtain a random number so as to use it to get the computer's selections
+function randomSelection(){
+	const randomIndex = Math.floor(Math.random() * SELECTION.length);
+	return SELECTION[randomIndex];
 	
 }
-//call the showround function which is the final function
-//showRound();
+
 
